@@ -15,15 +15,6 @@ def browseFiles(fileType):
                                                         "*.txt*")))
     return fN
 
-#need this but not priority right now
-'''def checkforDup(index)
-  seen = set(item_list)
-
-  if item not in seen:
-    seen.add(item)
-    item_list.append(item)
-'''
-
 #Gets all the indexs of the words that should be removed
 def findindexes(dataFile, whatToDelete):
   index = []
