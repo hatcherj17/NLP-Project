@@ -1,7 +1,6 @@
-import os
+#import os
 import csv
 import re
-from collections import defaultdict
 from tkinter import *
 from tkinter import filedialog
 
