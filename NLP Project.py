@@ -1,4 +1,3 @@
-#import os
 import csv
 import re
 from tkinter import *
@@ -63,7 +62,7 @@ for line in Lines:
     indexestonotinclude.extend(removeFrom(line, dataFile))
 
 #prints how many items shouldnt be included contains duplicates
-print(len(indexestonotinclude))
+#print(len(indexestonotinclude))
 
 #Sorts the list of indexes that shouldnt be included
 indexestonotinclude.sort()
