@@ -18,10 +18,10 @@ def browseFiles(fileType):
 def findindexes(dataFile, whatToDelete):
   index = []
   i = 0
-  for word in dataFile:
+  for row in dataFile:
     i += 1
-    for item in word:
-      if re.search(f'(?:{whatToDelete})', item, re.IGNORECASE):
+    for item in row:
+      if re.search(f'({whatToDelete}(?![\w\d]))', item, re.IGNORECASE):
         index.append(i)
   return index
 
@@ -63,7 +63,7 @@ for line in Lines:
     indexestonotinclude.extend(removeFrom(line, dataFile))
 
 #prints how many items shouldnt be included contains duplicates
-#print(len(indexestonotinclude))
+print(len(indexestonotinclude))
 
 #Sorts the list of indexes that shouldnt be included
 indexestonotinclude.sort()
