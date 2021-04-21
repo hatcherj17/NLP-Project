@@ -88,4 +88,4 @@ textFileRead.close()
 f.close()
 
 #Wait for Enter to close console
-#os.system("pause")
+os.system("pause")
