@@ -1,8 +1,11 @@
 import csv
 import os
 import re
+import tkinter as tk
 from tkinter import *
 from tkinter import filedialog
+from tkinter import scrolledtext
+
 
 #The select file filedialog screen
 def browseFiles(fileType):
@@ -29,6 +32,7 @@ def findindexes(dataFile, whatToDelete):
 def removeFrom(removeText, dataFile):
   indexOf = findindexes(dataFile, removeText)
   print(f'Total number of Books with "{removeText}" in the title: {str(len(indexOf))}')
+  txt.insert(INSERT,f'Total number of Books with "{removeText}" in the title: {str(len(indexOf))}\n')
   return indexOf
 
 #Outputs to new CSV file that has the reduced data
@@ -56,6 +60,17 @@ for row in csv_f:
 indexestonotinclude = []
 textFile = browseFiles('TXT')
 textFileRead = open(textFile, 'r')
+
+#Start the Window formation
+window = tk.Tk()
+window.geometry('750x300')
+txt = scrolledtext.ScrolledText(window, width=750, height=300)
+txt.grid(column=0, row=0)
+window.title("ECU Book Request Reducer")
+txt.insert(INSERT, "CSV Selected File: " + filename)
+txt.insert(INSERT, "\nMaster List Selected File: " + textFile + "\n\n")
+
+#Loop to get indexes not to include
 Lines = textFileRead.readlines()
 Lines = [x.strip() for x in Lines]
 for line in Lines:
@@ -88,4 +103,5 @@ textFileRead.close()
 f.close()
 
 #Wait for Enter to close console
-os.system("pause")
+#os.system("pause")
+window.mainloop()
